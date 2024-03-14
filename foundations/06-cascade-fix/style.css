@@ -8,16 +8,20 @@ body {
   font-weight: 800;
 }
 
-.small-para {
-  font-size: 14px;
-  font-weight: 800;
-}
+/* Moved .small-para below .para because they share specificity. Therefore, the last entry takes precedence (before, the second statement was inheriting the .para rule because it was lower in the list. */
 
 .para {
   font-size: 22px;
 }
 
-.confirm {
+.small-para {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* Changed the below from referencing the class and instead made it reference the ID that was also assigned to this line of the HTML file (#confirm-button). Before, the .button rule was taking precedence because it was lower in the .css. */
+
+#confirm-button {
   background: green;
   color: white;
   font-weight: bold;
@@ -29,14 +33,16 @@ body {
   font-size: 20px;
 }
 
-.child {
-  color: rgb(0, 0, 0);
-  font-weight: 800;
-  font-size: 14px;
-}
-
 div.text {
   color: rgb(0, 0, 0);
   font-size: 22px;
   font-weight: 100;
+}
+
+/* moved the below down from being above div.text. Also added div to the beginning of it (formerly just .child). This means order played into it, along with descendent combination. */
+
+div .child {
+  color: rgb(0, 0, 0);
+  font-weight: 800;
+  font-size: 14px;
 }
